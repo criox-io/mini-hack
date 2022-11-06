@@ -4,6 +4,7 @@ import cors from "cors";
 import connectDB from "./app/db/index.js";
 import ENV from "./app/env/index.js";
 import userRoute from "./app/routes/user/user.route.js";
+import authRoute from "./app/routes/auth/auth.route.js";
 
 const app = express();
 
@@ -12,7 +13,8 @@ app.use(bodyParser.json(), bodyParser.urlencoded({ extended: false }));
 app.use(cors());
 
 //routes
-app.use("/api/user", userRoute);
+app.use("/user", userRoute);
+app.use("/login", authRoute);
 
 //initialization
 const start = () => {
