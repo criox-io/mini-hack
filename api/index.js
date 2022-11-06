@@ -3,7 +3,7 @@ import bodyParser from "body-parser";
 import cors from "cors";
 import connectDB from "./app/db/index.js";
 import ENV from "./app/env/index.js";
-import sampleRoute from "./app/routes/v1/sample/sample.route.js";
+import userRoute from "./app/routes/user/user.route.js";
 
 const app = express();
 
@@ -12,7 +12,7 @@ app.use(bodyParser.json(), bodyParser.urlencoded({ extended: false }));
 app.use(cors());
 
 //routes
-app.use("/api/v1/sample", sampleRoute);
+app.use("/api/user", userRoute);
 
 //initialization
 const start = () => {

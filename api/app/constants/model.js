@@ -1,3 +1,3 @@
 export default {
-  SAMPLE: "Sample",
+  USER: "User",
 };
