@@ -1,0 +1,6 @@
+[
+    {
+        "name": "api-nft-service",
+        "script": "node src"
+    }
+]
