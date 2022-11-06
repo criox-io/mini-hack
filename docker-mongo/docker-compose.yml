@@ -1,0 +1,45 @@
+version: "3.6"
+services:
+  mongo1:
+    image: dannyben/alpine-mongo
+    restart: always
+    container_name: mongo1
+    hostname: mongo1
+    volumes:
+      - mongodata1:/data/db
+    ports:
+      - 27017:27017
+    entrypoint:
+      ["/usr/bin/mongod", "--replSet", "my-mongo-set", "--bind_ip_all"]
+
+  mongo2:
+    image: dannyben/alpine-mongo
+    restart: always
+    container_name: mongo2
+    hostname: mongo2
+    ports:
+      - 27018:27017
+    entrypoint:
+      ["/usr/bin/mongod", "--replSet", "my-mongo-set", "--bind_ip_all"]
+
+  mongo3:
+    image: dannyben/alpine-mongo
+    restart: always
+    container_name: mongo3
+    hostname: mongo3
+    volumes:
+      - mongodata3:/data/db
+    ports:
+      - 27019:27017
+    entrypoint:
+      ["/usr/bin/mongod", "--replSet", "my-mongo-set", "--bind_ip_all"]
+
+volumes:
+  mongodata1:
+    external: false
+  mongodata2:
+    external: false
+  mongodata3:
+    external: false
+  mongostatus:
+    external: false
