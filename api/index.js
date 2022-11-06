@@ -12,7 +12,7 @@ app.use(bodyParser.json(), bodyParser.urlencoded({ extended: false }));
 app.use(cors());
 
 //routes
-app.use("/api/user", userRoute);
+app.use("/user", userRoute);
 
 //initialization
 const start = () => {
